@@ -72,10 +72,14 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-        pass
+        self.values = set()
 
     def add(self, value):
-        pass
+        self.values.add(value)
 
     def get_unique_count(self):
-        pass
+        return len(self.values)
+
+# I used a set because it automatically stores only unique values, so duplicate
+# values do not increase the count. Adding a value is O(1) on average, and
+# getting the number of unique values with len() is O(1).
