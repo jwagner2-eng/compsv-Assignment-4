@@ -13,8 +13,18 @@ Output: False
 """
 
 def has_duplicates(product_ids):
-    # Your implementation here
-    pass
+    seen = set()
+
+    for product_id in product_ids:
+        if product_id in seen:
+            return True
+        seen.add(product_id)
+
+    return False
+
+# I used a set because it makes it easy to keep track of product IDs that have
+# already been seen. Checking for an ID and adding an ID to a set are both
+# O(1) on average, so checking the entire collection takes O(n) time.
 
 
 """
