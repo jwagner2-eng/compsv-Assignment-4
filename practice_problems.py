@@ -42,14 +42,19 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
-        pass
+        self.tasks = []
 
     def add_task(self, task):
-        pass
+        self.tasks.append(task)
 
     def remove_oldest_task(self):
-        pass
+        if len(self.tasks) == 0:
+            return None
+        return self.tasks.pop(0)
+
+# I used a list as a queue because the tasks need to stay in the order they
+# were added. Adding a task to the end is O(1) on average, while removing
+# the first task is O(n) because the remaining items have to shift forward.
 
 
 """
